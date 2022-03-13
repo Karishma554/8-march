@@ -1,0 +1,62 @@
+<html>
+    <head>
+        
+        <link rel="stylesheet" href="./gallery.css"/>
+        <title>Gallery</title>
+    </head>
+    <body>
+        <div id="back-container" class="main-container">
+            <div class="fake-image" >
+                <img id="0" onclick="showImg('https://cdn.pixabay.com/photo/2016/02/19/15/46/labrador-retriever-1210559_960_720.jpg')" src="https://cdn.pixabay.com/photo/2016/02/19/15/46/labrador-retriever-1210559_960_720.jpg"/>
+            
+               
+            </div>
+            <div class="fake-image" >
+                <img id="1" onclick="showImg('https://cdn.pixabay.com/photo/2020/01/14/17/55/dog-4765784_960_720.jpg')" src="https://cdn.pixabay.com/photo/2020/01/14/17/55/dog-4765784_960_720.jpg"/>
+              
+            </div>
+
+            <div class="fake-image" >
+                <img id="2" onclick="showImg('https://cdn.pixabay.com/photo/2019/06/15/18/27/labrador-4276236_960_720.jpg')" src="https://cdn.pixabay.com/photo/2019/06/15/18/27/labrador-4276236_960_720.jpg"/>
+              
+            </div>
+ 
+    
+        </div>
+        <div id="zoom-img-container" class="hide" >
+          <img id="zoom-img" src="" />
+          <button id="btn">❌</button>
+        </div>
+        <!-- <div class="zoom-img">
+            
+        </div> -->
+        <script>
+           
+         function showImg(id){
+             document.getElementById("zoom-img-container").classList.replace("hide","show");
+             document.getElementById("zoom-img").src=id;
+              document.getElementById("back-container").classList.add("hide");
+             console.log("hlw");
+         }
+         const close_Img=function (){
+             document.getElementById("zoom-img-container").classList.add("hide");
+             document.getElementById("back-container").classList.remove("hide");
+      
+         }
+     document.getElementById("btn").addEventListener('click',close_Img);
+    
+    
+
+    window.addEventListener('mouseup', function(event) {
+    //var container = document.getElementById('container');
+     var result=document.getElementById("zoom-img-container");
+    if (event.target != result && event.target.parentNode != result) {
+        result.classList.add("hide");
+        document.getElementById("back-container").classList.remove("hide");
+    }
+});
+
+        </script>
+        
+    </body>
+    </html>
